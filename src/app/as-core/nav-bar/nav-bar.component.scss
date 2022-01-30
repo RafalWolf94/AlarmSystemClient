@@ -1,0 +1,14 @@
+.nav-link{
+  font-size: 18px;
+}
+
+.nav-link{
+  &:focus{
+    background-color: #ffffff;
+    color: #000000;
+  }
+  &:hover{
+    background-color: #ffffff;
+    color: #000000;
+  }
+}

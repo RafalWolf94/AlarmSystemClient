@@ -1,0 +1,15 @@
+<div class="mt-5 text-center">
+  <ng-container *ngIf="deviceStatus">
+    <div class="device-card">
+      <span class="text-center text-dark">Urządzenie: {{deviceStatus.deviceNumber}}</span>
+      <ul class="mt-2">
+        <li>Temperatura: {{deviceStatus.temperatureMeasure}}</li>
+        <li>Wilgoć: {{deviceStatus.humidityMeasure}}</li>
+        <li>Zalanie:{{deviceStatus.isFlood}}</li>
+        <li>Pożar:{{deviceStatus.isFire}}</li>
+        <li>Ruch:{{deviceStatus.isMovement}}</li>
+        <li>Drzwi:{{deviceStatus.isDoorOpen}}</li>
+      </ul>
+    </div>
+  </ng-container>
+</div>
