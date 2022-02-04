@@ -1,0 +1,23 @@
+<ng-container *ngIf="rackStatus">
+  <div *ngFor="let rack of rackStatus">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td> Urządzenie: {{rack.deviceNumber}}</td>
+        <td>Temperatura: {{rack.temperatureMeasure}}°C</td>
+        <td>Wilgoć: {{rack.humidityMeasure}}%</td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</ng-container>

@@ -1,0 +1,17 @@
+<ng-container *ngIf="roomStatus.length > 0">
+  <div class="col room-card">
+    <div *ngFor="let room of roomStatus">
+      <ul class="text-start">
+        <li><strong>Urządzenie Nr. </strong> {{room.deviceNumber}}</li>
+        <li><strong>Temperatura przy drzwiach: </strong> {{room.doorTemperatureMeasure}}°C</li>
+        <li><strong>Wilogtność pry drzwiach:</strong> {{room.doorHumidityMeasure}}%</li>
+        <li><strong>Temperatura pokoju:</strong> {{room.roomTemperatureMeasure}}°C</li>
+        <li><strong>Wilgotność pokoju:</strong> {{room.roomHumidityMeasure}}%</li>
+        <li><strong>Pożar:</strong> {{room.isFire ? 'Tak' : 'Nie'}}</li>
+        <li><strong>Zalanie:</strong> {{room.isFlood ? 'Tak' : 'Nie'}}</li>
+        <li><strong>Ruch:</strong> {{room.isMovement ? 'Tak' : 'Nie'}}</li>
+        <li><strong>Drzwi:</strong> {{room.isDoorOpen ? 'Tak' : 'Nie'}}</li>
+      </ul>
+    </div>
+  </div>
+</ng-container>

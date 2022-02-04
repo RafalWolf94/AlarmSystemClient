@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpTransportType, HubConnection, HubConnectionBuilder } from "@microsoft/signalr";
 import { environment } from "../../../environments/environment";
 import { Subject } from "rxjs";
-import { DeviceStatus } from "../../as-modules/home/models/deviceStatus";
+import { RackStatus } from "../../as-modules/home/models/rack-status";
+import { RoomStatus } from "../../as-modules/home/models/room-status";
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ import { DeviceStatus } from "../../as-modules/home/models/deviceStatus";
 export class DeviceService {
   public hubUrl = environment.hubUrl;
   private hubConnection!: HubConnection;
-  public deviceStatus: Subject<DeviceStatus> = new Subject<DeviceStatus>()
+  public roomStatus: Subject<RoomStatus> = new Subject<RoomStatus>()
+  public rackStatus: Subject<RackStatus> = new Subject<RackStatus>()
 
   constructor() {
   }
@@ -28,10 +30,18 @@ export class DeviceService {
     this.hubConnection.start()
       .catch(error => console.log(error));
 
-    this.hubConnection.on('BroadcastMessage', response => this.deviceStatus.next(response))
+    this.hubConnection.on('BroadcastRoomStatus', response =>  this.handleRoomResponse(response))
+    this.hubConnection.on('BroadcastRackStatus', response =>  this.handleRackResponse(response))
   }
   public stopHubConnection() {
     this.hubConnection.start().catch(error => console.log(error));
   }
 
+  private handleRoomResponse(response: RoomStatus) {
+    this.roomStatus.next(response)
+  }
+
+  private handleRackResponse(response: RackStatus) {
+    this.rackStatus.next(response)
+  }
 }

@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AsModuleModule } from "./as-modules/as-module.module";
 import { NavBarComponent } from './as-core/nav-bar/nav-bar.component';
+import { SharedModule } from "./as-shared/shared.module";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -13,7 +15,11 @@ import { NavBarComponent } from './as-core/nav-bar/nav-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AsModuleModule
+    AsModuleModule,
+    SharedModule,
+    HttpClientModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

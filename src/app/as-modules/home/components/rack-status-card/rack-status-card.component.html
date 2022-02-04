@@ -1,0 +1,11 @@
+<div class="mt-5 text-center">
+  <ng-container *ngIf="rackStatus">
+    <div class="device-card">
+      <span class="text-center text-dark">Urządzenie: {{rackStatus.deviceNumber}}</span>
+      <ul class="mt-2">
+        <li>Temperatura: {{rackStatus.temperatureMeasure}}°C</li>
+        <li>Wilgoć: {{rackStatus.humidityMeasure}}%</li>
+      </ul>
+    </div>
+  </ng-container>
+</div>

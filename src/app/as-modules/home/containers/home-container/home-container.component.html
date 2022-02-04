@@ -1,7 +1,15 @@
-<div class="row">
-  <ng-container *ngFor="let device of deviceStatus">
-  <div class="col-md-4 col-sm-12">
-    <as-device-card [deviceStatus]="device"></as-device-card>
-  </div>
+<shared-page-title [content]="'Pomiary'"></shared-page-title>
+<hr class="w-50 m-auto mb-3">
+<shared-page-title [content]="'Szafy'"></shared-page-title>
+<div class="row row-cols-2 mt-5">
+  <ng-container *ngFor="let rack of rackStatus">
+    <div class="col">
+      <as-rack-status-card [rackStatus]="rack"></as-rack-status-card>
+    </div>
   </ng-container>
+</div>
+<hr>
+<shared-page-title [content]="'Pokój'"></shared-page-title>
+<div class="row mt-5 text-center">
+  <as-room-status-card [roomStatus]="roomStatus"></as-room-status-card>
 </div>
