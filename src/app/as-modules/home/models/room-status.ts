@@ -7,5 +7,7 @@
   isFire: boolean,
   isFlood: boolean,
   isMovement: boolean,
-  isDoorOpen: boolean
+  isDoorOpen: boolean,
+  measureDate: string
+  measureTime: string
 }

@@ -9,6 +9,7 @@ import { StatisticsComponent } from "./statistics/pages/statistics.component";
 import { AppuserComponent } from "./appuser/pages/appuser.component";
 import { LogEventsComponent } from "./log-events/pages/log-events.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { LogEventContainerComponent } from './log-events/log-event-container/log-event-container.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     LogEventsComponent,
     HomeContainerComponent,
     RoomStatusCardComponent,
-    RackStatusCardComponent
+    RackStatusCardComponent,
+    LogEventContainerComponent
   ],
   exports: [
     HomeComponent

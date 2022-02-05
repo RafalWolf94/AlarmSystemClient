@@ -1,0 +1,77 @@
+<div class="row row-cols-1 mt-5">
+  <div [formGroup]="searchForm">
+    <div class="col">
+      <button class="btn btn-primary" (click)="searchRack()">Pokaż Logi</button>
+      <input [formControlName]="'dateControl'" class="datePicker" type="date" dataformatas="dd-mm-yyyy" placeholder="">
+      <input [formControlName]="'device'" style="margin-left: 10px"  type="number" value="xD" placeholder="Urządzenie">
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="rackStatus">
+  <div *ngFor="let rack of rackStatus; let i  = index">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Urządzenie</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">Wilgoć</th>
+        <th scope="col">Data</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">{{i + 1}}</th>
+        <td> Urządzenie: {{rack.deviceNumber}}</td>
+        <td>Temperatura: {{rack.temperatureMeasure}}°C</td>
+        <td>Wilgoć: {{rack.humidityMeasure}}%</td>
+        <td>Data: {{rack.measureDate}} {{rack.measureTime}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>
+<div class="row row-cols-2 mt-5">
+  <div [formGroup]="searchForm">
+    <div class="col">
+      <button class="btn btn-primary" (click)="searchRoom()">Pokaż Logi</button>
+      <input [formControlName]="'dateControl'" class="datePicker" type="date" dataformatas="dd-mm-yyyy" placeholder="">
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="roomStatus">
+  <div *ngFor="let room of roomStatus; let i  = index">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Urządzenie</th>
+        <th scope="col">Temperatura przy drzwiach</th>
+        <th scope="col">Wilgoć przy drzwiach</th>
+        <th scope="col">Temperatura w pokoju</th>
+        <th scope="col">Wilgoć w pokoju</th>
+        <th scope="col">Drzwi</th>
+        <th scope="col">Pożar</th>
+        <th scope="col">Zalanie</th>
+        <th scope="col">Ruch</th>
+        <th scope="col">Data</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">{{i + 1}}</th>
+        <td>{{room.deviceNumber}}</td>
+        <td>{{room.doorTemperatureMeasure}}°C</td>
+        <td>{{room.doorHumidityMeasure}}%</td>
+        <td>{{room.roomTemperatureMeasure}}°C</td>
+        <td>{{room.roomHumidityMeasure}}%</td>
+        <td>{{room.isDoorOpen ? 'Tak' : 'Nie'}} </td>
+        <td>{{room.isFire ? 'Tak' : 'Nie'}} </td>
+        <td>{{room.isFlood ? 'Tak' : 'Nie'}} </td>
+        <td>{{room.isMovement ? 'Tak' : 'Nie'}} </td>
+        <td>{{room.measureDate}} {{room.measureTime}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-container>

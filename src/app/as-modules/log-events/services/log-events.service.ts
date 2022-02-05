@@ -19,7 +19,7 @@ export class LogEventsService {
     return this.apiService.get<ApiResponse<RackStatus[]>>(`${ApiEndpoints.getRackEventLogs}`, {date: date, deviceNumber: deviceNumber});
   }
 
-  getRoomEventLogs(date: string | null): Observable<ApiResponse<RoomStatus[]>> {
+  getRoomEventLogs(date: string = extensions.stringEmpty()): Observable<ApiResponse<RoomStatus[]>> {
     return this.apiService.get<ApiResponse<RoomStatus[]>>(`${ApiEndpoints.getRoomEventLogs}`, {date: date,});
   }
 }
