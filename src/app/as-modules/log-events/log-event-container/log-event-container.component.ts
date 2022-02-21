@@ -69,16 +69,17 @@ export class LogEventContainerComponent implements OnInit {
     }
 
     this.executeRackSearch(undefined,number);
-
   }
 
   private getFormatDate(date: string): string {
     let newDate = extensions.stringEmpty();
     let splitDate = date.split('-', Quantity.Three);
-    for (let i = 0; i < splitDate.length; i++) {
+    console.log(splitDate)
+    for (let i = splitDate.length-1; i >= 0; i--) {
       newDate += splitDate[ i ];
-      if (i !== Quantity.Two) {
-        newDate += '-';
+      console.log(newDate);
+      if (i !== Quantity.Zero) {
+        newDate += '.';
       }
     }
     return newDate;

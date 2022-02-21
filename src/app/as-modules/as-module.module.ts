@@ -10,6 +10,7 @@ import { AppuserComponent } from "./appuser/pages/appuser.component";
 import { LogEventsComponent } from "./log-events/pages/log-events.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { LogEventContainerComponent } from './log-events/log-event-container/log-event-container.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -21,10 +22,12 @@ import { LogEventContainerComponent } from './log-events/log-event-container/log
     HomeContainerComponent,
     RoomStatusCardComponent,
     RackStatusCardComponent,
-    LogEventContainerComponent
+    LogEventContainerComponent,
+    LoginComponent
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
